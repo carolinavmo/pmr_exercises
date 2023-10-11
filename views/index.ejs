@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="m-8">           
+        <h1 class="text-3xl mb-8 font-bold text-center text-teal-700 bg-sky-100 p-4">Programa de exercícios no domicílio</h1>
+        <h2>Escolha uma região</h2>
+                <ul>
+                    <% if (regions.length > 0) { %>
+                        <% regions.forEach(region => { %>
+                            <li>
+                                <p><%= region.name %></p>
+                            </li>
+                        <%  }); %>
+                    <% } %>
+                </ul>
+    </div>
+
+</body>
+</html>

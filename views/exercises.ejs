@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercises index page</h1>
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFR - Exercícios no domicílio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+   
+
+</head>
+<body class="font-sans">
+    <div class="m-8">           
+        <h1 class="text-3xl mb-8 font-bold text-center text-teal-700 bg-sky-100 p-4">Programa de exercícios no domicílio</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Figura</th>
+                    <th>Descrição</th>
+                    <th>Nº séries | Nº repetições</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% if (program.length > 0) { %>
+                <% program.forEach(exercise => { %>
+                    <tr>
+                        <td><%= exercise.name %></td>
+                        <td><img src="https://www.atemi-sports.com/wp-content/uploads/2021/08/External-Shoulder-Rotation.jpg" alt="" class="w-10"></td>
+
+                        <td>
+                            <p><%= exercise.description %></p>
+                            <p><%= exercise.series %></p></td>
+                        <td><%= exercise.time %></td>
+                    </tr>
+                <%  }); %>
+            <% } %>
+            </tbody>
+            <tfoot>
+                <tr><td colspan="2"><%=program.length%> exercícios</td></tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ombro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    
+    <div class="w-full text-center text-2xl bg-sky-950 h-36 flex justify-center items-center text-white font-semibold">
+        <p>Programa de exercícios</p>
+    </div>
+
+
+    <div class="w-full flex rounded-lg p-3">
+
+        <div class="w-2/12  bg-sky-950 text-white h-screen flex flex-col text-xl p-3 rounded-lg">
+            <p class="font-semibold text-center py-8 text-3xl">Regiões</p>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg" >Ombro</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Cotovelo</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Punho e mão</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Anca</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Joelho</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Tornozelo e pé</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Coluna cervical</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Coluna dorsal</a>
+            <a href="#" class="py-6 px-8 hover:bg-slate-900 rounded-lg">Coluna lombar</a>
+
+        </div>
+
+        <div class="w-10/12" >
+            <div class="bg-sky-950 text-white  mx-5 mb-1 rounded-lg">
+                <h1 class="text-left py-10 text-4xl pl-10"><b>Ombro</b></h1>
+            </div>
+                <h2 class="text-center py-8 text-3xl mb-2">Selecione os exercícios:</h2>
+        
+                <% if (ombro.length > 0) { %>
+                    <% ombro.forEach(exercise => { %>
+                        <div class="mx-5 bg-blue-50 mb-10 rounded-lg drop-shadow-lg">
+                            <p class="text-left text-xl p-5 font-bold bg-blue-200 rounded-t-lg"><%= exercise.name %></p>
+                            <div class="flex p-4 h-56" >
+                                <div class="w-1/4 flex justify-center items-center">
+                                    <img src="https://www.atemi-sports.com/wp-content/uploads/2021/08/External-Shoulder-Rotation.jpg" alt="" class="h-full object-cover"></td>
+                                 </div>
+                                <div class="w-2/4">
+                                    <p><%= exercise.description %></p>
+                                </div>
+                                <div class="w-1/4">
+                                    <p><%= exercise.series %></p>
+                                    <input type="checkbox" class="check" value="false" data-id="<%= exercise.id %>" data-name="<%= exercise.name %>" data-description="<%= exercise.description %>" data-series="<%= exercise.series %>">
+                                </div>
+                            </div>
+                        </div>
+                    <%  }); %>
+                <% } %>
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <button id="generate" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Generate PDF</button>
+    </div>
+
+
+
+    <script>
+        submit.addEventListener("click", () => {
+            
+            let elementos = document.getElementsByClassName("check")
+            let information_to_print = []
+
+            for (let i=0;i<elementos.length;i++){
+                if ( elementos[i].checked ) {
+
+                    let objeto = {
+                        id: elementos[i].dataset.id,
+                        name: elementos[i].dataset.name,
+                        description: elementos[i].dataset.description,
+                        series: elementos[i].dataset.series,
+                    }
+
+                    information_to_print.push(objeto);
+                }
+            }
+            
+            return information_to_print
+
+        })
+    </script>
+
+
+</body>
+</html>
